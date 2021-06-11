@@ -48,4 +48,7 @@ g_sc0=g_rb0*g_r0;
 A_inv=A_r0\eye(3);
 Ad_g_r0_inv=[A_inv zeros(3,3); lie_cross(-A_inv*r_r0)*A_inv A_inv];
 eps_sc=eps_r0+Ad_g_r0_inv*eps_rb0;%[ang_vel_sc_0;v_sc];
-sim('model_6DOF.slx')
+
+Kd=0.04*eye(6);
+Kp=4*(10^(-4))*eye(6);
+out=sim('model_6DOF.slx')
